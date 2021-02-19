@@ -1,0 +1,50 @@
+Linux Command
+------------------------------
+[root + Enter]
+pass :[12345678]
+------------------------------
+[useradd test01]
+New password: [12345678]
+Retype new password: [12345678]
+[passwd ppp] --pppユーザーのパスワードを作成します
+------------------------------
+[groupadd keiri] --keiriグループ作成
+[usermod -G keiri test01] --test01をグループに移動させる
+[pwd] --ユーザー確認
+------------------------------
+[cd ../home] --rootの」階層からhomeへ
+[mkdir keiri] --経理ディレクトリ
+[chgrp keiri keiri] 経理所有者に経理を設定する
+[chmod g+w keiri] --グループの種類 g(所有グループ)+r?w?x?(読み書き実行) ディレクトリ
+------------------------------
+[mkdir sample] --sampleディレクトリ作成
+[ls al] --全表示
+------------------------------
+drwxrwxrwx. 3 test01 keiri 16 Nov 30 14:08 aaa
+ファイルオーナー読み書き実行
+ファイルグループ読み書き実行
+その他のユーザー読み書き実行
+3-リンク数 test01-所有者 keiri-所有グループ 16-ファイルサイズ aaa-ファイル・フォルダ名
+------------------------------
+[cd sample] [cd .]
+[vi sample.txt] --作成
+[i]--編集モードに切り替え
+[ESCkey] 編集モードがコマンドモードへ 
+[:wq] --入力終了
+[vi sample.txt] +[:q!]--ファイルを開いて保存せずex終了
+[mkdir text] [mv sample.txt text] --ファイル移動
+[cd text] [cp sample.txt ../] --ファイルのコピー
+[cd ../] [rmdir text] --textディレクトリの削除
+[rm -i text/sample.txt] --textフォルダのsample.txtを削除最後は[y or n]
+[shutdown -h now] --シャットダウン
+--------------------------------
+
+追加
+[cut -d: -f1 /etc/passwd] ユーザーを見る
+[history] --実行したコマンド履歴
+
+
+便利だったショートカット
+[Ctrl+L] --きれいさっぱり
+[Ctrl+C] --動作キャンセル
+[Ctrl+Z] --処理中断中断[jobs %- ジョブ番号][fg ジョブ番号] --再開
