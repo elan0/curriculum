@@ -15,6 +15,7 @@ Retype new password: [12345678]
 [cd ../home] --rootの」階層からhomeへ
 [mkdir keiri] --経理ディレクトリ
 [chgrp keiri keiri] 経理所有者に経理を設定する
+[chown test01 sample.txt]
 [chmod g+w keiri] --グループの種類 g(所有グループ)+r?w?x?(読み書き実行) ディレクトリ
 ------------------------------
 [mkdir sample] --sampleディレクトリ作成
@@ -48,3 +49,16 @@ drwxrwxrwx. 3 test01 keiri 16 Nov 30 14:08 aaa
 [Ctrl+L] --きれいさっぱり
 [Ctrl+C] --動作キャンセル
 [Ctrl+Z] --処理中断中断[jobs %- ジョブ番号][fg ジョブ番号] --再開
+
+
+--------------------------------
+chmodの細かい使い方
+
+	[u]ユーザー	[+]指定した権限の付与	[r]読み	
+[chmod]	[g]グループ	[-]指定した権限の除去	[w]書き	[.txt]
+	[o]その他	[=]指定した権限にする	[x]実行	
+	[a]全て					
+--------------------------------
+[vi testscript.sh] --スクリプトファイル作成
+[chmod u+x testscript.sh] --実行権限を与える
+[./testscript.sh]
