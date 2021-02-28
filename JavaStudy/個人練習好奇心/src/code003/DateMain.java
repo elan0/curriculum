@@ -1,5 +1,7 @@
 package code003;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.Year;
@@ -58,6 +60,24 @@ public class DateMain {
 		//Year.isLeapを使うことでうるう年かどうかの判定もできる
 		int year =2020;
 		System.out.println(year + "年は、うるう年" + (Year.isLeap(year) ? "です" : "ではない"));
+
+
+		/*
+		 * カレンダー出力の書き換え
+		 */
+		Date date1 = new Date();
+		Calendar ca2 =Calendar.getInstance();
+		//MMだけ大文字、注意！
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy年MM月dd日hh時mm分");
+		try {
+		System.out.println(date1);
+		System.out.println(sdf2.format(date1));
+		date1 =sdf2.parse("1996年12月25日11時20分");
+		System.out.println(date1);
+		System.out.println(sdf2.format(date1));
+		}catch(ParseException e) {
+			System.out.println("形を変えられないよ");
+		}
 	}
 
 	/**

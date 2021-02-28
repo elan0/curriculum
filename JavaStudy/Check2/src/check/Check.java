@@ -3,6 +3,11 @@ package check;
 import constants.Constants;
 
 public class Check {
+	/**
+	 * クラスを呼び出して名前を呼び出す。
+	 * 他のクラスからいろいろ呼び出す。
+	 * Check2用のプログラム
+	 */
 	private String firstName ="畑中";
 	private String lastName ="悠希";
 	public static void main(String[] args) {

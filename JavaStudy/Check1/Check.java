@@ -1,4 +1,3 @@
-package JavaStudy.Check1;
 /**
  * バブルソート
  * チェックテスト-Java1章
