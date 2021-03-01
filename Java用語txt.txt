@@ -94,25 +94,38 @@
 :asana
 	プロジェクトを管理するためのツール
 :Backlog
-	
+	今後やる作業予定
 :Jooto
+	プロジェクト管理ツール
 :Readmine
+	プロジェクト管理ツール チケットに作業内容が書いてある
 :Trello
+	プロジェクト管理ツール webで動く
 ■ バージョン管理
 :集中型
+	一つのプログラムを皆で触る
 :分散型
+	それぞれがファイルを作業する
 :Github
-:Backlog
+	分散型
 :SourceTree
+	Mercural(hg)に対応したGit
 :Tortoise SVN
+	windowsのshellで動くGit
 :Git Flow
+	Git拡張プラグイン
 :master
+	リリース済みのソースコードを管理する
 :release
+	リリースする
 :develop
+	開発中のソースコードを管理する
 :feature
 ■ FW／ライブラリ
 :FW
+	FontWorks、ファイアウォール
 :Spring Framework
+	Javaのフレームワークの一つ
 :Struts
 :JSF（Java Server Faces）
 :ライブラリ
