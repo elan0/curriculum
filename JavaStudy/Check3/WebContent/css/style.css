@@ -1,0 +1,26 @@
+@charset "UTF-8";
+div{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+p{
+	color: black;
+}
+.header{
+background-color: gray;
+display: inline-block;
+padding: 10px;
+color: white;
+padding: 10px;
+font-size: 10px;
+width: 100%;
+}
+.footer{
+background-color: gray;
+display: inline-block;
+padding: 10px;
+color: white;
+padding: 10px;
+font-size: 10px;
+width: 100%;
+}
