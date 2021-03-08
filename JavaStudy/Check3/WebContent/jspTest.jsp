@@ -11,13 +11,7 @@
 	<div class="header">
 		<table>
 		<tr>
-			<th><h1>login</h1></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th><h1 class="mgr-10">login</h1></th>
 			<th style="font-size: 15px"><%@ include file="header.jsp" %></th>
 		</tr>
 		</table>
