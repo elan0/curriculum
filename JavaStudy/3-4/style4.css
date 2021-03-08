@@ -1,0 +1,76 @@
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.header{
+    width: 350px;
+    height: 100px;
+    background-color: black;
+}
+.center{
+    width: 350px;
+    height: 150px;
+}
+.lower{
+    width: 350px;
+    height: 100px;
+}
+.yellow{
+    float: left;
+    width: 150px;
+    height: 100px;
+    background-color: #ffff66;
+}
+.gray{
+    float: right;
+    width: 200px;
+    height: 100px;
+    background-color: #666666;
+}
+.red{
+    float: left;
+    width: 150px;
+    height: 150px;
+    background-color: #ff3333;
+}
+.cyan-green{
+    float: right;
+    width: 200px;
+    height: 150px;
+}
+.cyan{
+    float: left;
+    width: 100px;
+    height: 150px;
+    background-color: #3366FF;
+}
+.green{
+    float: right;
+    width: 100px;
+    height: 150px;
+    background-color: #669933;
+}
+.hada{
+    float: left;
+    width: 150px;
+    height: 100px;
+    background-color: #ff9966;
+}
+.usuki-purple{
+    float :right;
+    width: 200px;
+    height: 100px;
+}
+.usuki{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: #ffffcc;
+}
+.purple{
+    float: right;
+    width: 100px;
+    height: 100px;
+    background-color: #330066;
+}

@@ -1,0 +1,19 @@
+.header{
+    border: solid 1px #999;
+    background-color: yellow;
+    width: 400px;
+    height: 100px;
+}
+#wrapper{
+    width: 600px;
+    background-color: aqua;
+}
+.main{
+    height: 500px;
+    border: solid 1px #999;
+    background-color: pink;
+}
+.footer{
+    border: solid 1px #999;
+    background-color: skyblue;
+}

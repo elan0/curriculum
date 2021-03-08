@@ -26,6 +26,7 @@ public class Check {
 	/**
 	 * 苗字と名前を一つに合体させるメソッド
 	 */
+	
 	public String printName() {
 		return firstName+lastName;
 	}
