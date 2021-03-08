@@ -29,7 +29,9 @@ public class Check {
 	public String printName() {
 		return firstName+lastName;
 	}
-	//以下ゲッターセッター
+	/**
+	 * 以下ゲッターセッター
+	 */
 	public String getFirstName() {
 		return firstName;
 	}

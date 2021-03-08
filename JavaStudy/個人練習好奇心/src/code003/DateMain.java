@@ -75,6 +75,11 @@ public class DateMain {
 		date1 =sdf2.parse("1996年12月25日11時20分");
 		System.out.println(date1);
 		System.out.println(sdf2.format(date1));
+		///////////////////////////////////////////////////////////
+		System.out.println(ca2);
+		System.out.println(ca2.after(sdf2));
+		System.out.println(ca2.before(sdf2));
+
 		}catch(ParseException e) {
 			System.out.println("形を変えられないよ");
 		}
