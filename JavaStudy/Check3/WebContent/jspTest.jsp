@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
+<title>ログイン画面</title>
 </head>
 <body>
 	<div class="header">
@@ -17,7 +17,6 @@
 		</table>
 	</div>
 	<div class="jspTest">
-
 		<table>
 		<tr>
 			<th><label for="name">name</label></th>
@@ -27,10 +26,14 @@
 			<th><label for="ids">id</label></th>
 			<th><input type="text" name="id" id="ids"></th>
 		</tr>
+		<tr>
+			<th><label for="button">ログイン</label></th>
+			<th><button name="button" id="login" >Enter</button></th>
+		</tr>
 		</table>
 	</div>
 	<div class="footer">
-		<h1>hoge.Inc</h1>
+		<%@ include file="footer.jsp" %>
 	</div>
 </body>
 </html>

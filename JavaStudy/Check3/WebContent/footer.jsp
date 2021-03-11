@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+	<%
+	String inc="hoge.Inc";
+	%>
+	<h2> <%= inc %></h2>
 </body>
 </html>
