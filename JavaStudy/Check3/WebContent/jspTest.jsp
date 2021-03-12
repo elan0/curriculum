@@ -8,6 +8,8 @@
 <title>ログイン画面</title>
 </head>
 <body>
+
+<!-- inline使ってみ -->
 	<div class="header">
 		<table>
 		<tr>
