@@ -1,29 +1,31 @@
 @charset "UTF-8";
-div{
-	padding-top: 50px;
+/* ヘッダー用 */
+div.header {
+	background-color: gray;
+}
+
+label.headerA {
+	display: inline-block;
+	padding: 10px;
+	color: white;
+}
+
+label.headerB {
+	padding: 10px;
+	font-size: 10px;
+}
+/* メイン */
+div.main {padding-top: 50px;
 	padding-bottom: 50px;
 }
-p{
-	color: black;
+
+/* フッター */
+div.footer {
+	background-color: gray;
 }
-.header{
-background-color: gray;
-display: inline-block;
-padding: 10px;
-color: white;
-padding: 10px;
-font-size: 10px;
-width: 100%;
-}
-.footer{
-background-color: gray;
-display: inline-block;
-padding: 10px;
-color: white;
-padding: 10px;
-font-size: 10px;
-width: 100%;
-}
-.mgr-10{
-	margin-right: 20px;
+
+label.footer {
+	display: inline-block;
+	padding: 10px;
+	color: white;
 }
