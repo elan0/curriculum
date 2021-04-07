@@ -2,7 +2,7 @@ Linux Command
 ------------------------------
 [root + Enter]
 pass :[12345678]
-------------------------------
+------------------------------a
 [useradd test01]
 New password: [12345678]
 Retype new password: [12345678]
