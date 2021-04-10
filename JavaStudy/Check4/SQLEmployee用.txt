@@ -1,0 +1,10 @@
+CREATE database Employee;
+CREATE TABLE Employee_table(
+	id CHAR(5) PRIMARY KEY NOT NULL,
+	password VARCHAR(256) NOT NULL,
+	name VARCHAR(256),
+	comment VARCHAR(256),
+	login_time VARCHAR(19)
+);
+insert into employee_table(id,password,name,comment)
+values('09090','admin','nanaumishinya','javaman');
