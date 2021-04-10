@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import bean.EmployeeBean;
 import service.EmployeeService;
 
-
 	@WebServlet("/search")
 public class EmployeeController extends HttpServlet {
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
