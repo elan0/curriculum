@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import skillcheck.bean.EmployeeBean;
 import skillcheck.bean.ResponseBean;
 import skillcheck.constant.ConstMessage;
 import skillcheck.exception.MVCException;
 import skillcheck.logger.Logger;
+import skillcheck.service.EmployeeManagementService;
 import skillcheck.util.RequestTypeUtil;
 import skillcheck.util.RequestTypeUtil.RequestType;
 
@@ -38,11 +40,14 @@ public final class EmployeeManagementController extends BaseServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Logger.logStart(new Throwable());
-
 		RequestType requestType = null;
 
 		// FIXME Step-4-1: 社員情報管理サービスのインスタンスを生成しなさい。
 		// Tips: 定義済みフィールド変数を使用
+		System.out.println(request.getParameter("empId"));
+		EmployeeBean empId =new EmployeeBean(request.getParameter("empId"));
+
+		///////////////////////////////////////////////////////////////////////////////////////
 
 		boolean hasSession = false;
 
@@ -95,19 +100,18 @@ public final class EmployeeManagementController extends BaseServlet {
 		Logger.logEnd(new Throwable());
 	}
 
-	@Override
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Logger.logStart(new Throwable());
 
+		System.out.println("到達したデータ"+request.getParameter("empId"));
+
+		Logger.logStart(new Throwable());
 		// DBの文字コード設定と合わせる
 		request.setCharacterEncoding("utf-8");
-
 		this.responseBean = new ResponseBean();
-
 		RequestType requestType = null;
 		destinationTarget = null;
-
 		List<String> reqEmpIdList = null;
 		boolean hasSession = true;
 		boolean isLoginError = false;
@@ -119,11 +123,11 @@ public final class EmployeeManagementController extends BaseServlet {
 		Function<HttpServletRequest, List<String>> rmdGetEmpIdList = (rmdRequest) -> {
 			// FIXME Step-4-2: 各jspよりPOSTで送信されたリクエストパラメーターの社員番号を取得しなさい。
 			// Tips: jsp側のname属性と一致させること
-			final String pEmpId = "[ここへ記述]";
+			final String pEmpId = request.getParameter("empId");
+			System.out.println("取得されたデータ"+pEmpId);
 			return Arrays.asList(pEmpId);
 		};
 		/* 関数型インターフェース（ラムダ式）- END */
-
 		try {
 			requestType = this.getRequestType(request);
 			Logger.log(new Throwable(), "RequestType = " + requestType.toString());
@@ -140,6 +144,7 @@ public final class EmployeeManagementController extends BaseServlet {
 
 			// FIXME Step-4-3: 社員情報管理サービスのインスタンス変数を生成しなさい。
 			// Tips: 定義済みフィールド変数を使用
+			EmployeeManagementService employeeManagementService = new EmployeeManagementService();
 			// [ここへ記述]
 
 			reqEmpIdList = rmdGetEmpIdList.apply(request);
@@ -208,6 +213,7 @@ public final class EmployeeManagementController extends BaseServlet {
 		try {
 			if (Objects.isNull(requestTypeName)) {
 				// この処理に到達してしまう場合は、リクエスト時に押下したボタン（疑似ボタン）の「name」、「value」をチェック
+				System.out.println("到達してはいけない場所に到達しました");
 				this.responseBean.setRequestStaus(1);
 				this.responseBean.setEmplyeeBeanList(new ArrayList<>(0));
 				this.responseBean.setMessage(ConstMessage.ERROR_UNKNOWN_REQUEST);
