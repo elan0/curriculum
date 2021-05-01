@@ -175,6 +175,7 @@ public final class EmployeeManagementService extends BaseService implements Empl
 
 		// クエリ用文字列を連結させて作成
 		sbQuery.append(ConstSQL.SELECT_BASE);
+		System.out.println(sbQuery);
 
 		try {
 			// 「全件検索」以外の場合は、条件クエリを追加する
@@ -185,10 +186,11 @@ public final class EmployeeManagementService extends BaseService implements Empl
 				Logger.log(new Throwable(), "SQL: " + sbQuery.toString());
 				break;
 			case FIND_BY_EMPID:
-
 				// FIXME Step-5-4: pEmployeeBeanListの「1件目の要素のみ」から社員情報を取得しなさい。
 				// Tips1: ループ文を使用すること（正解は複数パターンあります）
 				// Tips2: 格納先はローカル変数のempとすること
+				System.out.println(pEmployeeBeanList.get(0));
+				System.out.println(pEmployeeBeanList.get(1));
 				// [ここへ記述]
 
 				if (Objects.nonNull(emp)) {
@@ -200,6 +202,7 @@ public final class EmployeeManagementService extends BaseService implements Empl
 					// 1. 上記で構築したSELECT文を引数にして、connectionよりプリペアードステートメントオブジェクトを作成
 					// 2. 1で作成したオブジェクトをpreparedStatementへ格納
 					// Tips: sbQueryは、sbQuery.toString()でStringへ変換
+					sbQuery.append(ConstSQL.SELECT_BY_EMPID);
 					// [ここへ記述]
 
 					// LIKEを使用するため、パラメータを編集
@@ -218,6 +221,7 @@ public final class EmployeeManagementService extends BaseService implements Empl
 				}
 				break;
 			default:
+				System.out.println("NOP");
 				// NOP
 				break;
 			}

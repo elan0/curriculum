@@ -27,7 +27,7 @@ public final class ConstSQL {
 	/** 社員情報一覧取得用クエリ: 取得カラム + 取得元テーブル */
 	public static final String SELECT_BASE = "SELECT "
 			+ "empId,password,name,mail,"
-			+ "programinglanguage, comment"
+			+ "programinglanguage, comment "
 			+ "FROM employee";
 	/** 社員情報一覧取得用クエリ: 削除されていない社員情報を社員番号順に取得 */
 	public static final String SELECT_BY_DELETE_FLG_ZERO = " WHERE deleteFlg = '0' ORDER BY empId";

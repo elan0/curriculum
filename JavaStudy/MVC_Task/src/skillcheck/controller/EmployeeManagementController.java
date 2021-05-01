@@ -44,8 +44,7 @@ public final class EmployeeManagementController extends BaseServlet {
 
 		// FIXME Step-4-1: 社員情報管理サービスのインスタンスを生成しなさい。
 		// Tips: 定義済みフィールド変数を使用
-		System.out.println(request.getParameter("empId"));
-		EmployeeBean empId =new EmployeeBean(request.getParameter("empId"));
+		EmployeeBean empId =new EmployeeBean(request.getParameter(CONST_ELEMENT_NAME_REQUEST));
 
 		///////////////////////////////////////////////////////////////////////////////////////
 
@@ -53,6 +52,7 @@ public final class EmployeeManagementController extends BaseServlet {
 
 		try {
 			// セッションチェック
+			System.out.println("セッションチェック開始");
 			hasSession = super.validateSession(request, response);
 			Logger.log(new Throwable(), "hasSession = " + hasSession);
 
@@ -103,9 +103,7 @@ public final class EmployeeManagementController extends BaseServlet {
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		System.out.println("到達したデータ"+request.getParameter("empId"));
-
+		System.out.println(request.getParameter(CONST_ELEMENT_NAME_REQUEST));
 		Logger.logStart(new Throwable());
 		// DBの文字コード設定と合わせる
 		request.setCharacterEncoding("utf-8");
@@ -142,11 +140,11 @@ public final class EmployeeManagementController extends BaseServlet {
 					return;
 			}
 
+
 			// FIXME Step-4-3: 社員情報管理サービスのインスタンス変数を生成しなさい。
 			// Tips: 定義済みフィールド変数を使用
-			EmployeeManagementService employeeManagementService = new EmployeeManagementService();
+			this.ems = new EmployeeManagementService();
 			// [ここへ記述]
-
 			reqEmpIdList = rmdGetEmpIdList.apply(request);
 			reqEmpIdList.forEach(id -> Logger.log(new Throwable(), "reqEmpId = " + id));
 
@@ -162,6 +160,7 @@ public final class EmployeeManagementController extends BaseServlet {
 				break;
 			}
 		} catch (NullPointerException e) {
+			System.out.println("nurupo");
 			super.executeSetExceptionInfo(e, ConstMessage.EXCEPTION_NULL, -1);
 		} catch (MVCException e) {
 			this.responseBean = e.getResponseBean();
@@ -174,6 +173,11 @@ public final class EmployeeManagementController extends BaseServlet {
 			// FIXME Step-4-4: 取得結果（ResponseBean）をjspへ渡すための処理を記述しなさい。
 			// Tips1: リクエストへレスポンス情報をセット
 			// Tips2: キー名は「CONST_REQUST_KEY_FOR_RESPONSE_BEAN」使用
+			System.out.println("レスポンス情報をセット");
+			request.setAttribute(CONST_REQUST_KEY_FOR_RESPONSE_BEAN, this.responseBean);
+
+
+
 			// [ここへ記述]
 
 			Logger.log(new Throwable(), "遷移先 = " + this.destinationTarget);
@@ -201,11 +205,10 @@ public final class EmployeeManagementController extends BaseServlet {
 	 */
 	private RequestType getRequestType(final HttpServletRequest request) throws MVCException {
 		Logger.logStart(new Throwable());
-
 		final String requestTypeName = request.getParameter(CONST_ELEMENT_NAME_REQUEST);
 		Logger.log(new Throwable(), "requestTypeName = " + requestTypeName);
-
 		RequestType requestType = null;
+
 
 		if (Objects.isNull(this.responseBean))
 			this.responseBean = new ResponseBean();
@@ -213,7 +216,6 @@ public final class EmployeeManagementController extends BaseServlet {
 		try {
 			if (Objects.isNull(requestTypeName)) {
 				// この処理に到達してしまう場合は、リクエスト時に押下したボタン（疑似ボタン）の「name」、「value」をチェック
-				System.out.println("到達してはいけない場所に到達しました");
 				this.responseBean.setRequestStaus(1);
 				this.responseBean.setEmplyeeBeanList(new ArrayList<>(0));
 				this.responseBean.setMessage(ConstMessage.ERROR_UNKNOWN_REQUEST);
