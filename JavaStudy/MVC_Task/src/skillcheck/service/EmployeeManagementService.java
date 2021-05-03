@@ -82,7 +82,6 @@ public final class EmployeeManagementService extends BaseService implements Empl
 			// FIXME Step-5-3: SELECT文の実行(5-1, 5-2)
 			// Tips: executeSelectQueryメソッド内を修正してください。
 			this.executeSelectQuery(eCase, pEmployeeBeanList);
-
 			// SQL実行結果よりメタデータを取得
 			final ResultSetMetaData meta = resultSet.getMetaData();
 			Logger.log(new Throwable(), "meta = " + meta);
@@ -175,7 +174,6 @@ public final class EmployeeManagementService extends BaseService implements Empl
 
 		// クエリ用文字列を連結させて作成
 		sbQuery.append(ConstSQL.SELECT_BASE);
-		System.out.println(sbQuery);
 
 		try {
 			// 「全件検索」以外の場合は、条件クエリを追加する
@@ -189,20 +187,20 @@ public final class EmployeeManagementService extends BaseService implements Empl
 				// FIXME Step-5-4: pEmployeeBeanListの「1件目の要素のみ」から社員情報を取得しなさい。
 				// Tips1: ループ文を使用すること（正解は複数パターンあります）
 				// Tips2: 格納先はローカル変数のempとすること
-				System.out.println(pEmployeeBeanList.get(0));
-				System.out.println(pEmployeeBeanList.get(1));
-				// [ここへ記述]
 
+				for (EmployeeBean empTest : pEmployeeBeanList) {
+					emp = empTest;
+				}
+				// [ここへ記述]
 				if (Objects.nonNull(emp)) {
 					Logger.log(new Throwable(), "pEmployeeBeanList[0].empId = " + emp.getEmpId());
 
 					sbQuery.append(ConstSQL.SELECT_BY_EMPID);
-
 					// FIXME Step-5-5: 以下の手順に沿って適当な処理を記述しなさい。
 					// 1. 上記で構築したSELECT文を引数にして、connectionよりプリペアードステートメントオブジェクトを作成
 					// 2. 1で作成したオブジェクトをpreparedStatementへ格納
 					// Tips: sbQueryは、sbQuery.toString()でStringへ変換
-					sbQuery.append(ConstSQL.SELECT_BY_EMPID);
+					this.preparedStatement = connection.prepareStatement(sbQuery.toString());
 					// [ここへ記述]
 
 					// LIKEを使用するため、パラメータを編集
@@ -212,16 +210,16 @@ public final class EmployeeManagementService extends BaseService implements Empl
 
 					// FIXME Step-5-6: preparedStatementに適切なパラメーターをセットしなさい。
 					// Tips: パラメータをセットするインデックスに注意
+					this.preparedStatement.setString(1, empId);
 					// [ここへ記述]
-
 					// FIXME Step-5-7: preparedStatementよりSQL(SELECT文)を実行し、resultSetへ結果を格納しなさい。
+					this.resultSet = this.preparedStatement.executeQuery();
 					// [ここへ記述]
 
 					Logger.log(new Throwable(), "SQL: " + this.preparedStatement.toString());
 				}
 				break;
 			default:
-				System.out.println("NOP");
 				// NOP
 				break;
 			}

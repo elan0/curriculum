@@ -56,7 +56,6 @@ public abstract class BaseService {
 		try {
 			// FIXME Step-5-2: 以下のStep-5-2に適切な定数を記述しなさい。
 			// Tips: ConstSQLより適切な定数を参照
-
 			// FIXME Step-5-2: postgresqlのドライバー名
 			Class.forName(ConstSQL.JDBC_POSTGRES_DRIVER);
 
