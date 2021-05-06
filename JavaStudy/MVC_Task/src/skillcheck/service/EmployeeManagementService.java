@@ -187,7 +187,6 @@ public final class EmployeeManagementService extends BaseService implements Empl
 				// FIXME Step-5-4: pEmployeeBeanListの「1件目の要素のみ」から社員情報を取得しなさい。
 				// Tips1: ループ文を使用すること（正解は複数パターンあります）
 				// Tips2: 格納先はローカル変数のempとすること
-
 				for (EmployeeBean empTest : pEmployeeBeanList) {
 					emp = empTest;
 				}
@@ -212,6 +211,7 @@ public final class EmployeeManagementService extends BaseService implements Empl
 					// Tips: パラメータをセットするインデックスに注意
 					this.preparedStatement.setString(1, empId);
 					// [ここへ記述]
+					System.out.println(this.preparedStatement);
 					// FIXME Step-5-7: preparedStatementよりSQL(SELECT文)を実行し、resultSetへ結果を格納しなさい。
 					this.resultSet = this.preparedStatement.executeQuery();
 					// [ここへ記述]
