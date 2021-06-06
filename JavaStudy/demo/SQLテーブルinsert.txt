@@ -1,0 +1,19 @@
+CREATE TABLE sample (
+username VARCHAR(40) UNIQUE NOT NULL,
+password VARCHAR(40) NOT NULL,
+mailAddress VARCHAR(40) UNIQUE NOT NULL,
+passwordVerified BOOLEAN NOT NULL,
+enabled BOOLEAN NOT NULL,
+createdat VARCHAR(40)
+);
+
+INSERT INTO sample(
+username,password,mailAddress,
+passwordVerified,enabled)
+VALUES(
+'admin',
+'1234',
+'admin@localhost',
+true,
+true
+);

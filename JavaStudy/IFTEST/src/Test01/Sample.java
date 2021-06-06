@@ -2,23 +2,24 @@ package Test01;
 
 public class Sample {
 	public static void main(String[] args) throws Exception {
+		System.out.println("ヒーローを呼び出します");
 
-		int[] data = { 3, 1, 2, 7, 5 };
+		Keisan keisan = new Keisan();
 
-		for (int i = 0; i < 20; i++) {
-			System.out.println(i+"回目の繰り返し");
+		//10たす5の計算
+		System.out.println("10たす5の足し算の"+
+		"結果は・・・"+keisan.Tasu(10,5));
 
-			/** この下は無視 */
-			try {
-
-				Thread.sleep(1000);
-
-
+		//10ひく5の計算
+		keisan.Hiku(10,5);
 
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		//底辺の高さが10センチの時の1から
+		//100000までの面積を求めなさい
+		int teihen = 10;
+		for(int i =1;i <= 100000;i++) {
+			System.out.println("結果="
+		+ keisan.SankakuMenseki(teihen, i));
 		}
 	}
 }
