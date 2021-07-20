@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="bean.EmployeeBean"%>
-<%
+<% 
 	// 問① getAttributeに適切な引数をセットして、EmployeeControllerから渡されたBeanを取得する。
 	EmployeeBean employeeBean = (EmployeeBean) request.getAttribute("EmployeeBean");
 %>
